@@ -89,23 +89,26 @@ if (debug):
 print "[i] Obtaining output URLs ...\n"
 urlarray = []
 
-# location where URLs may be found		
+# location where URLs may be found	
 for x in range(0,10):
 	outputurl = ""
 	try:
 		outputurl = jsondata["entryResult"]["meta"]["partnerData"]["Files"][x]["URL"].replace("\\","")
 	except:
 		pass
+		
+	if (outputurl.endswith("m3u8") or outputurl.endswith("wvm") or outputurl.endswith("mp4")):
+		urlarray.append(outputurl)
 	
 	if (outputurl.endswith("mp4") ):
 	    r = Tk()
 	    r.withdraw()
 	    r.clipboard_clear()
 	    r.clipboard_append(outputurl)
-	    print "[i] MP4 Copied To Clipboard \n"	
-		
-	if (outputurl.endswith("m3u8") or outputurl.endswith("wvm") or outputurl.endswith("mp4")):
-		urlarray.append(outputurl)
+	    r.update()
+	    r.destroy()
+	    print "[i] MP4 Copied To Clipboard \n"
 		
 for y in range(1,len(urlarray)+1):
-	print "[%s]: %s" % (y,urlarray[y-1])
+	print "[%s]: %s \n" % (y,urlarray[y-1])
+	
