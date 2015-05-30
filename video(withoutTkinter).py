@@ -85,13 +85,14 @@ if (debug):
 	text_file.write("{}".format(json.dumps(jsondata,indent=4)))
 	text_file.close()
 	
-print "[i] Obtaining output URLs ..."
+print "[i] Obtaining output URLs ... \n"
 
 try: 
 	for x in range(0,10):
 		outputurl = jsondata["entryResult"]["meta"]["partnerData"] ["Files"] [x]["URL"].replace("\\","")
 		
 		if (outputurl.endswith("m3u8") or outputurl.endswith("wvm") or outputurl.endswith("mp4")  ):
-		   print outputurl	
+		   print "%s \n" % (outputurl)
 except:
-	print "Done!"
+	print "\n \nDone!"
+	
