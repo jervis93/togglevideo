@@ -7,5 +7,6 @@ There is 3 versions
 <ol>
 <li>simple version</li>
 <li>simple version added with numbers</li>
+<li>simple version added with numbers + url obtained from clipboard
 <li>simple version without Tkinter</li>
 </ol>
