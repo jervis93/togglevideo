@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+from Tkinter import Tk
 import urllib2
 import re
 import json
@@ -90,17 +91,8 @@ for url in sys.argv[1:]:
 
 	print "[i] Obtaining output URLs ...\n"
 	urlarray = []
-	# location 1 where URLs may be found
-	for x in range(0,10):
-		outputurl = ""
-		try:
-			outputurl = jsondata["entryResult"]["contextData"]["flavorAssets"][x]["partnerData"]["url"].replace("\\","")
-		except:
-			pass
-		if (outputurl.endswith("m3u8") or outputurl.endswith("wvm") or outputurl.endswith("mp4")):
-			urlarray.append(outputurl)
 
-	# location 2 where URLs may be found		
+	# location where URLs may be found		
 	for x in range(0,10):
 		outputurl = ""
 		try:
@@ -112,5 +104,14 @@ for url in sys.argv[1:]:
 
 	for y in range(1,len(urlarray)+1):
 		print "[%s]: %s" % (y,urlarray[y-1])
-
+	
+	c1 = str(urlarray).replace("u'","").replace("'","").strip('[]')
+	
+	r = Tk()
+	r.withdraw()
+	r.clipboard_clear()
+	r.clipboard_append(c1)
+	r.update_idletasks()
+	r.destroy()
+	print "[i] MP4 Copied To Clipboard"
 	
