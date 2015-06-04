@@ -9,7 +9,7 @@ There is 3 versions
 <li>simple version added with numbers</li>
 <li>simple version added with numbers + url obtained from clipboard
 <li>simple version without Tkinter</li>
-<li>simple version added with numbers, without Tkinter, mulitple url</li>
+<li>simple version added with numbers, mulitple url</li>
 </ol>
 
 (For multiple urls)
